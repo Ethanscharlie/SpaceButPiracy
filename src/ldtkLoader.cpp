@@ -1,6 +1,7 @@
 #include "ldtkLoader.hpp"
 
 #include "ldtk/LDTK_Project.hpp"
+#include "ldtk/LDTK_Tilemap.hpp"
 #include "ldtkDefinition.hpp"
 
 void loadLdtk() {
@@ -9,8 +10,7 @@ void loadLdtk() {
   ldtk->onLoadLevel = []() {
     Camera::cameraLimitBox = ldtk->currentLevel->levelBox;
     Camera::setPosition(ldtk->currentLevel->levelBox.getCenter());
-    // GameManager::getEntities("Ground")[0]->get<LDTK::Tilemap>()->solid =
-    // true;
+    GameManager::getEntities("Ground")[0]->get<LDTK::Tilemap>()->solid = true;
 
     for (Entity *entity : ldtk->currentLevel->loadedEntites) {
     }
