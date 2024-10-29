@@ -3,4 +3,4 @@
 #include "ldtk/LDTK_Project.hpp"
 #include <memory>
 
-std::unique_ptr<LDTK::Project> ldtk;
+inline std::unique_ptr<LDTK::Project> ldtk = std::unique_ptr<LDTK::Project>();

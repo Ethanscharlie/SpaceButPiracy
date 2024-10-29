@@ -4,10 +4,11 @@
 #include "ldtkDefinition.hpp"
 
 void loadLdtk() {
-  ldtk = std::make_unique<LDTK::Project>("res/MetroidVaniaGame.ldtk");
+  ldtk = std::make_unique<LDTK::Project>("res/SpacePirateGame.ldtk");
   ldtk->render();
   ldtk->onLoadLevel = []() {
     Camera::cameraLimitBox = ldtk->currentLevel->levelBox;
+    Camera::setPosition(ldtk->currentLevel->levelBox.getCenter());
     // GameManager::getEntities("Ground")[0]->get<LDTK::Tilemap>()->solid =
     // true;
 
