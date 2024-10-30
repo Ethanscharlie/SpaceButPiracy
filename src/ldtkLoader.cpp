@@ -1,5 +1,6 @@
 #include "ldtkLoader.hpp"
 
+#include "creaters/Door_creater.hpp"
 #include "creaters/Soldier_creater.hpp"
 #include "ldtk/LDTK_Project.hpp"
 #include "ldtk/LDTK_Tilemap.hpp"
@@ -16,6 +17,14 @@ void loadLdtk() {
     for (Entity *entity : ldtk->currentLevel->loadedEntites) {
       if (entity->tag == "Soldier") {
         createSoldier(entity);
+      }
+
+      else if (entity->tag == "DoorH") {
+        createDoor(entity, true);
+      }
+
+      else if (entity->tag == "DoorV") {
+        createDoor(entity, false);
       }
     }
   };

@@ -1,5 +1,6 @@
 #include "Player_creater.hpp"
 #include "components/Player_component.hpp"
+#include "components/RoomSwitcher.hpp"
 
 Entity *createPlayer(Vector2f position) {
   Entity *entity = GameManager::createEntity("Player");
@@ -11,6 +12,7 @@ Entity *createPlayer(Vector2f position) {
   sprite->image = Image("res/images/spaceBean.png");
 
   entity->add<Player>();
+  entity->add<RoomSwitcher>();
 
   return entity;
 }
