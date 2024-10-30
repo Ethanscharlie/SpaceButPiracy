@@ -9,7 +9,7 @@ void Soldier::start() {
     Angle angle;
     angle.lookAt(entity->box.getCenter(),
                  GameManager::getEntities("Player")[0]->box.getCenter());
-    createEvilbullet(entity->box.getCenter(), angle.getVector() * 200);
+    createEvilbullet(entity->box.getCenter(), angle.getVector() * 100);
   });
 }
 

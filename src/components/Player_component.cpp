@@ -56,7 +56,7 @@ void Player::update(float deltaTime) {
   }
 
   if (health <= 0) {
-    health = 3;
+    health = 1;
     entity->box.position = spawn;
   }
 }

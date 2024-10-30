@@ -1,5 +1,6 @@
 #include "Camera.hpp"
 #include "Charlie2D.hpp"
+#include "components/Player_component.hpp"
 #include "creaters/Player_creater.hpp"
 #include "ldtkDefinition.hpp"
 #include "ldtkLoader.hpp"
@@ -23,6 +24,7 @@ int main(int, char **) {
   ldtk->loadLevel("16eef591-73f0-11ef-a015-e1fef6b15dbf");
 
   player->box.setWithCenter(Camera::getPosition());
+  player->get<Player>()->spawn = player->box.position;
 
   GameManager::doUpdateLoop();
   return 0;

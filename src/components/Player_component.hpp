@@ -9,6 +9,6 @@ public:
   void update(float deltaTime) override;
 
   Vector2f spawn;
-  int health = 3;
+  int health = 1;
   std::vector<std::string> finishedRooms;
 };
