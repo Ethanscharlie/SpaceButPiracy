@@ -2191,6 +2191,38 @@
 							"fieldInstances": [],
 							"__worldX": 80,
 							"__worldY": -16
+						},
+						{
+							"__identifier": "Soldier",
+							"__grid": [2,17],
+							"__pivot": [0,0],
+							"__tags": ["Enemy"],
+							"__tile": null,
+							"__smartColor": "#BE4A2F",
+							"iid": "23632500-73f0-11ef-8706-27a5411fba6e",
+							"width": 16,
+							"height": 16,
+							"defUid": 64,
+							"px": [32,272],
+							"fieldInstances": [],
+							"__worldX": 32,
+							"__worldY": -80
+						},
+						{
+							"__identifier": "Soldier",
+							"__grid": [9,15],
+							"__pivot": [0,0],
+							"__tags": ["Enemy"],
+							"__tile": null,
+							"__smartColor": "#BE4A2F",
+							"iid": "239c0f50-73f0-11ef-8706-4d67df5ae569",
+							"width": 16,
+							"height": 16,
+							"defUid": 64,
+							"px": [144,240],
+							"fieldInstances": [],
+							"__worldX": 144,
+							"__worldY": -112
 						}
 					]
 				},

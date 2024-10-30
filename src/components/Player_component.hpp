@@ -7,4 +7,8 @@ class Player : public Component {
 public:
   void start() override;
   void update(float deltaTime) override;
+
+  Vector2f spawn;
+  int health = 3;
+  std::vector<std::string> finishedRooms;
 };

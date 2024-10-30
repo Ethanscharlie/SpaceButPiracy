@@ -19,6 +19,7 @@ void Door::update(float deltaTime) {
 
     } else {
       if (GameManager::getComponents<Soldier>().size() == 0) {
+        Event::fireEvent("RoomFinish");
         entity->toDestroy = true;
       }
     }

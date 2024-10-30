@@ -17,10 +17,12 @@ int main(int, char **) {
 
   Camera::scale = SCALEUP_MULTIPLIER;
 
+  Entity* player = createPlayer({0, 0});
+
   loadLdtk();
   ldtk->loadLevel("16eef591-73f0-11ef-a015-e1fef6b15dbf");
 
-  createPlayer(Camera::getPosition());
+  player->box.setWithCenter(Camera::getPosition());
 
   GameManager::doUpdateLoop();
   return 0;
