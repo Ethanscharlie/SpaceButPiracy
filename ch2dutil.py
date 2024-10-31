@@ -38,16 +38,39 @@ NEW_CREATER_TEMPLATE = """#pragma once
 
 #include "Charlie2D.hpp"
 
-Entity* create{}();
+class {} : public Component {{
+public:
+  void start() override;
+  void update(float deltaTime) override;
+  static void createInstance(Vector2f centerPosition = {{0, 0}});
+  static void configureInstance(Entity* entity);
+}};
 
 """
-NEW_CREATER_TEMPLATE_CPP = """#include "{}_creater.hpp"
+NEW_CREATER_TEMPLATE_CPP = """#include "{}_mce.hpp"
 
-Entity* create{}() {{
-    Entity* entity = GameManager::createEntity("{}");
+#define ENTITY_TAG "{{}}"
+#define IMAGE_FILE ""
+#define SIZE {{16, 16}}
 
-    
-    return entity;
+void {}::start() {{}}
+
+void {}::update(float deltaTime) {{}}
+
+void {}::createInstance(Vector2f centerPosition) {{
+  Entity *entity = GameManager::createEntity(ENTITY_TAG);
+  entity->box.size = SIZE;
+  entity->box.setWithCenter(centerPosition);
+  configureInstance(entity);
+}}
+
+void {}::configureInstance(Entity* entity) {{
+  if ((std::string)IMAGE_FILE != "") {{
+    Sprite *sprite = entity->add<Sprite>();
+    sprite->image = {{IMAGE_FILE}};
+  }}
+
+  entity->add<{}>();
 }}
 """
 
@@ -84,11 +107,11 @@ def create_creater_file(name: str):
     if not os.path.exists(creaters_path):
         os.makedirs(creaters_path)
 
-    with open(os.path.join(creaters_path, f"{name}_creater.hpp"), "w+") as f:
-        f.write(NEW_CREATER_TEMPLATE.format(name.capitalize()))
+    with open(os.path.join(creaters_path, f"{name}_mce.hpp"), "w+") as f:
+        f.write(NEW_CREATER_TEMPLATE.format(name))
 
-    with open(os.path.join(creaters_path, f"{name}_creater.cpp"), "w+") as f:
-        f.write(NEW_CREATER_TEMPLATE_CPP.format(name, name.capitalize(), name))
+    with open(os.path.join(creaters_path, f"{name}_mce.cpp"), "w+") as f:
+        f.write(NEW_CREATER_TEMPLATE_CPP.format(name, name, name, name, name, name))
 
 def create_moder_file(name: str):
     name = name.replace(' ', '')
