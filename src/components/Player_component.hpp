@@ -12,5 +12,7 @@ public:
   int health = 1;
   int maxHealth = 1;
   int damage = 1;
+  float speed = 1;
   std::vector<std::string> finishedRooms;
+  bool canTakeDamage = true;
 };

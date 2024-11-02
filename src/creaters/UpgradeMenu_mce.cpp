@@ -37,7 +37,7 @@ void UpgradeMenu::configureInstance(Entity *entity) {
   UpgradeMenu *upgradeMenu = entity->add<UpgradeMenu>();
   upgradeMenu->upgrade1 = upgradeListing::createInstance({0, -200}, "Health");
   upgradeMenu->upgrade2 = upgradeListing::createInstance({0, 100}, "Damage");
-  upgradeMenu->upgrade3 = upgradeListing::createInstance({0, 400}, "Health");
+  upgradeMenu->upgrade3 = upgradeListing::createInstance({0, 400}, "Speed");
 }
 
 void UpgradeMenu::onDestroy() {

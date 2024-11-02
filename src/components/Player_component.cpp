@@ -40,7 +40,8 @@ void Player::update(float deltaTime) {
     solids.push_back(&col->entity->box);
   }
 
-  Vector2f move = InputManager::checkAxis() * deltaTime * 100;
+  Vector2f move =
+      InputManager::checkAxis() * deltaTime * (100 * speed);
   entity->box.slide(move, solids);
 
   if (move.x > 0) {
@@ -50,10 +51,13 @@ void Player::update(float deltaTime) {
   }
 
   for (Entity *bullet : GameManager::getEntities("EvilBullet")) {
-    if (entity->box.checkCollision(bullet->box)) {
+    if (entity->box.checkCollision(bullet->box) && canTakeDamage) {
       bullet->toDestroy = true;
       printf("Player took damage\n");
       health--;
+      canTakeDamage = false;
+      entity->add<Scheduler>()->addSchedule("cooldown", 200,
+                                            [this]() { canTakeDamage = true; });
     }
   }
 

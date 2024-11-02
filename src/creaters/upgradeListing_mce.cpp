@@ -78,9 +78,14 @@ void upgradeListing::configureInstance(Entity *entity, std::string upgrade) {
         player->health = player->maxHealth;
       } else if (upgrade == "Damage") {
         player->damage++;
+        player->health = player->maxHealth;
+      } else if (upgrade == "Speed") {
+        player->speed += 0.1;
+        player->health = player->maxHealth;
       }
 
       GameManager::getComponents<UpgradeMenu>()[0]->entity->toDestroy = true;
+      textComponent->entity->active = false;
     }
   };
 }
