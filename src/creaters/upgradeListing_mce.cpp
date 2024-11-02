@@ -7,11 +7,17 @@
 #define ENTITY_TAG "upgrade listing"
 #define SIZE {600, 200}
 
-void upgradeListing::start() {}
+void upgradeListing::start() {
+  entity->add<Scheduler>()->addSchedule(
+      "cooldown", 1000, [this]() { cooldown = true; }, true);
+}
 
 void upgradeListing::update(float deltaTime) {
   entity->get<Sprite>()->update(deltaTime);
   entity->get<Text>()->update(deltaTime);
+
+  if (!cooldown)
+    return;
 
   touching = false;
   Vector2f mousePos;
@@ -55,6 +61,7 @@ void upgradeListing::configureInstance(Entity *entity, std::string upgrade) {
   textComponent->changeFont("res/fonts/prstart.ttf", 30);
   textComponent->text_color = {255, 255, 255};
   textComponent->standardUpdate = false;
+  textComponent->text = upgrade;
 
   upgradeListing *button = entity->add<upgradeListing>();
   button->offHover = [textComponent, upgrade]() {

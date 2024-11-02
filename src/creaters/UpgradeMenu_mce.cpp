@@ -10,6 +10,10 @@ void UpgradeMenu::start() {}
 void UpgradeMenu::update(float deltaTime) {}
 
 Entity *UpgradeMenu::createInstance(Vector2f centerPosition) {
+  if (GameManager::getComponents<UpgradeMenu>().size() > 0) {
+    return nullptr;
+  }
+
   Entity *entity = GameManager::createEntity(ENTITY_TAG);
   entity->renderPositionType = EntityRenderPositionType::Screen;
   entity->layer = 60;

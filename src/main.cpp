@@ -28,8 +28,6 @@ int main(int, char **) {
   player->box.setWithCenter(Camera::getPosition());
   player->get<Player>()->spawn = player->box.position;
 
-  UpgradeMenu::createInstance();
-
   GameManager::doUpdateLoop();
   return 0;
 }

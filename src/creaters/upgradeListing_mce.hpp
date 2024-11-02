@@ -16,5 +16,6 @@ public:
 
   bool checkInWorld = false;
   bool touching = false;
+  bool cooldown = false;
 };
 
