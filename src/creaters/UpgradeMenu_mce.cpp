@@ -31,12 +31,9 @@ void UpgradeMenu::configureInstance(Entity *entity) {
   textComponent->text = "Select an upgrade";
 
   UpgradeMenu *upgradeMenu = entity->add<UpgradeMenu>();
-  upgradeMenu->upgrade1 = upgradeListing::createInstance({0, -200});
-  upgradeMenu->upgrade2 = upgradeListing::createInstance({0, 100});
-  upgradeMenu->upgrade3 = upgradeListing::createInstance({0, 400});
-
-  Event::addEventListener("CloseUpgradeMenu",
-                          [entity]() { entity->toDestroy = true; });
+  upgradeMenu->upgrade1 = upgradeListing::createInstance({0, -200}, "Health");
+  upgradeMenu->upgrade2 = upgradeListing::createInstance({0, 100}, "Damage");
+  upgradeMenu->upgrade3 = upgradeListing::createInstance({0, 400}, "Health");
 }
 
 void UpgradeMenu::onDestroy() {

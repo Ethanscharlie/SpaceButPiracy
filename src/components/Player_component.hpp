@@ -10,5 +10,7 @@ public:
 
   Vector2f spawn;
   int health = 1;
+  int maxHealth = 1;
+  int damage = 1;
   std::vector<std::string> finishedRooms;
 };

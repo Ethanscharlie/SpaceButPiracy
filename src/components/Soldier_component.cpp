@@ -31,7 +31,7 @@ void Soldier::update(float deltaTime) {
   for (Entity *bullet : GameManager::getEntities("Bullet")) {
     if (entity->box.checkCollision(bullet->box)) {
       bullet->toDestroy = true;
-      health--;
+      health -= bullet->get<Bullet>()->damage;
     }
   }
 

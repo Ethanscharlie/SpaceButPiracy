@@ -9,4 +9,5 @@ public:
   void update(float deltaTime) override;
 
   Vector2f force;
+  int damage;
 };

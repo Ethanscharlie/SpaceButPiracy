@@ -14,7 +14,7 @@ void Player::start() {
     Angle angle;
     angle.lookAt(entity->box.getCenter(),
                  InputManager::getMouseWorldPosition());
-    createBullet(entity->box.getCenter(), angle.getVector() * 300);
+    createBullet(entity->box.getCenter(), angle.getVector() * 300, damage);
   });
 
   Event::addEventListener("RoomFinish", [this]() {
@@ -52,12 +52,13 @@ void Player::update(float deltaTime) {
   for (Entity *bullet : GameManager::getEntities("EvilBullet")) {
     if (entity->box.checkCollision(bullet->box)) {
       bullet->toDestroy = true;
+      printf("Player took damage\n");
       health--;
     }
   }
 
   if (health <= 0) {
-    health = 1;
+    health = maxHealth;
     entity->box.position = spawn;
   }
 }
