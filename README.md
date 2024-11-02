@@ -1,11 +1,3 @@
-# Charlie2D-Project-Template
-The official Charlie2D Project Template
-
-#### Clone Command:
-```
-git clone https://github.com/Ethanscharlie/Charlie2D-Project-Template.git GAMENAMEHERE; cd "$(basename "$_" .git)"
-```
-
 # Compile Instructions
 ## Linux
 Install cmake
