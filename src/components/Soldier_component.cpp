@@ -3,6 +3,7 @@
 #include "Vector2f.hpp"
 #include "components/Bullet_component.hpp"
 #include "creaters/EvilBullet_creater.hpp"
+#include "ldtkLoader.hpp"
 
 void Soldier::start() {
   entity->add<Scheduler>()->addSchedule("Fire", 1000, [this]() {

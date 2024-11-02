@@ -7,6 +7,7 @@
 #include "creaters/Bullet_creater.hpp"
 #include "ldtk/LDTK_Tilemap.hpp"
 #include "ldtkDefinition.hpp"
+#include "ldtkLoader.hpp"
 
 void Player::start() {
   Event::addEventListener("LeftMouseButtonDown", [this]() {

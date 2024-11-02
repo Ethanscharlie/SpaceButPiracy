@@ -2,6 +2,8 @@
 #include "Charlie2D.hpp"
 #include "components/Player_component.hpp"
 #include "creaters/Player_creater.hpp"
+#include "creaters/UpgradeMenu_mce.hpp"
+#include "creaters/upgradeListing_mce.hpp"
 #include "ldtkDefinition.hpp"
 #include "ldtkLoader.hpp"
 #include <iostream>
@@ -25,6 +27,8 @@ int main(int, char **) {
 
   player->box.setWithCenter(Camera::getPosition());
   player->get<Player>()->spawn = player->box.position;
+
+  UpgradeMenu::createInstance();
 
   GameManager::doUpdateLoop();
   return 0;
